@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
+
+    <title>{{title}}</title>
+  </head>
+  <body>
+
+    
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">CityRoast</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?page=mngStoc">Mng. Stoc</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    {{mainContent}}
+
+    
+  <div
+  class="modal fade"
+  id="adaugaUserModal"
+  tabindex="-1"
+  aria-labelledby="adaugaUserModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adaugaUserModal">Ce vrei sa prajesti?</h5>
+      </div>
+      <div class="modal-body">
+        <form action="?page=adaugaUser" method="POST">
+          <div class="form-group">
+            <label for="userName">Username</label>
+            <input type="text" class="form-control" id="userName" name="userName" placeholder="userName-ul noului user">
+          </div>
+          <div class="form-group">
+            <label for="pass">Parola</label>
+            <input type="text" class="form-control" id="pass" name="parola" placeholder="Parola">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipUser" id="manager" value="manager">
+            <label class="form-check-label" for="manager">
+              Manager
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipUser" id="prajitor" value="prajitor">
+            <label class="form-check-label" for="prajitor">
+              Prajitor
+            </label>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Creeaza user</button>          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

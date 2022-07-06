@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
+
+    <title>{{title}}</title>
+  </head>
+  <body>
+
+
+      <!-- modal adauga stoc -->
+  <div
+  class="modal fade"
+  id="adaugaStocModal"
+  tabindex="-1"
+  aria-labelledby="adaugaStocModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adaugaStocModal">Selecteaza sortimentul si noul Stoc</h5>
+      </div>
+      <div class="modal-body">
+        <form action="?page=adaugaStoc" method="POST">
+          <select name="selectSortiment" class="form-select" aria-label="Default select example">
+            {{dropdownSortimente}}
+          </select>
+          <div class="form-group">
+            <label for="cantitate">Cantitate</label>
+            <input type="number" class="form-control" id="cantitate" name="cantitate" placeholder="Cantiate stoc nou">
+          </div>
+
+          <button class="btn btn-primary mt-3">Adauga stoc</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal adauga stoc -->
+
+
+
+
+
+
+
+      <!-- modal scoate stoc -->
+      <div
+      class="modal fade"
+      id="scoateStocModal"
+      tabindex="-1"
+      aria-labelledby="scoateStocModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="scoateStocModal">Selecteaza sortimentul si cantitatea vanduta</h5>
+          </div>
+          <div class="modal-body">
+            <form action="?page=scoateStoc" method="POST">
+              <select name="selectSortiment" class="form-select" aria-label="Default select example">
+                {{dropdownSortimente}}
+              </select>
+              <div class="form-group">
+                <label for="cantitate">Cantitate</label>
+                <input type="number" class="form-control" id="cantitate" name="cantitate" placeholder="Cantiate stoc nou">
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="scop" id="magazin" value="magazin">
+                <label class="form-check-label" for="magazin">
+                  Magazin
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="scop" id="vanzare" value="vanzare">
+                <label class="form-check-label" for="vanzare">
+                  Vanzare
+                </label>
+              </div>  
+              <button class="btn btn-primary mt-3">Scoate stoc</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- modal scoate stoc -->
+    
+
+
+
+
+
+
+
+    
+
+
+      <!-- modal istoric stoc -->
+      <div
+      class="modal fade"
+      id="istoricStocModal"
+      tabindex="-1"
+      aria-labelledby="istoricStocModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="istoricStocModal">Alege datele pentru istoric</h5>
+          </div>
+          <div class="modal-body">
+            <form action="?page=istoricStoc" method="POST">
+             
+              <div class="form-group">
+                <label for="data1">De la</label>
+                <input type="date" class="form-control" id="data1" name="data1">
+              </div>
+
+              <div class="form-group">
+                <label for="data2">Pana la</label>
+                <input type="date" class="form-control" id="data2" name="data2">
+              </div>
+
+              <button class="btn btn-primary mt-3">Vezi istoric stoc</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- modal istoric stoc -->
+    
+
+
+
+
+
+
+
+
+
+
+
+      <!-- modal adauga comanda -->
+      <div
+      class="modal fade"
+      id="adaugaComandaModal"
+      tabindex="-1"
+      aria-labelledby="adaugaComandaModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="adaugaComandaModal">Selecteaza sortimentul si noul Stoc</h5>
+          </div>
+          <div class="modal-body">
+            <form action="?page=adaugaComanda" method="POST">
+              <select name="selectSortiment" class="form-select" aria-label="Default select example">
+                {{dropdownSortimente}}
+              </select>
+              <div class="form-group">
+                <label for="cantitate">Cantitate</label>
+                <input type="number" class="form-control" id="cantitate" name="cantitate" placeholder="Cantiate pentru comanda noua">
+              </div>
+
+             
+              <div class="form-group">
+                <label for="data">Data</label>
+                <input type="date" class="form-control" id="data" name="data">
+              </div>
+
+              <button class="btn btn-primary mt-3">Inregistreaza comanda</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- modal adauga comanda -->
+    
+
+
+      <!-- modal adauga sortiment -->
+  <div
+  class="modal fade"
+  id="adaugaSortimentModal"
+  tabindex="-1"
+  aria-labelledby="adaugaSortimentModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adaugaSortimentModal">
+          Adauga un nou sortiment
+        </h5>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="?page=adaugaSortiment&idSortiment">
+          <div class="mb-3">
+            <label for="numeSortiment" class="form-label"
+              >Nume sortiment</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="numeSortiment"
+              name="numeSortiment"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="cantitate" class="form-label">Cantitate</label>
+            <input
+              type="number"
+              class="form-control"
+              id="cantitate"
+              name="cantitate"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal adauga sortiment -->
+
+
+  <!-- modal helper prajire - select sortiment -->
+
+  <div
+    class="modal fade"
+    id="prajireModal"
+    tabindex="-1"
+    aria-labelledby="prajireModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="prajireModal">Ce vrei sa prajesti?</h5>
+        </div>
+        <div class="modal-body">
+          <form action="?page=helperPrajire" method="POST">
+            <select name="selectSortiment" class="form-select" aria-label="Default select example">
+              {{dropdownSortimente}}
+            </select>
+            <button class="btn btn-primary mt-3">Prajeste</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal helper prajire - select sortiment -->
+
+
+
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">CityRoast</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?page=mngStoc">Mng. Stoc</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#adaugaUserModal" href="#adaugaUserModal">Adauga user</a>
+            </li>
+
+            <a
+            class="nav-link"
+            href="#adaugaSortimentModal"
+            data-bs-toggle="modal"
+            data-bs-target="#adaugaSortimentModal"
+          >
+            Adauga Sortiment
+          </a>
+          <a
+            class="nav-link"
+            data-bs-toggle="modal"
+            data-bs-target="#prajireModal"
+            href="#prajireModal"
+            >Helper prajire</a
+          >
+        
+          <a 
+            class = "nav-link"
+            data-bs-toggle="modal"
+            data-bs-target="#adaugaStocModal"
+            href="#adaugaStocModal"
+            >Adauga Stoc</a>
+
+
+            <a 
+            class = "nav-link"
+            data-bs-toggle="modal"
+            data-bs-target="#scoateStocModal"
+            href="#scoateStocModal"
+            >Scoate Stoc</a>
+
+            <a 
+            class = "nav-link"
+            data-bs-toggle="modal"
+            data-bs-target="#istoricStocModal"
+            href="#istoricStocModal"
+            >Istoric Stoc</a>
+
+          <a 
+            class="nav-link"
+            data-bs-toggle="modal"
+            data-bs-target="#adaugaComandaModal"
+            href="#adaugaComandaModal">Comanda noua</a>
+        
+          <a class="nav-link" href="?page=comenzi">Comenzi</a>
+          <a class="nav-link" href="?page=prajeli">Vezi ultimele prajeli</a>
+          <a class="nav-link" href="?page=serviceCuptor">Info service cuptor</a>
+        
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    {{mainContent}}
+
+    
+  <div
+  class="modal fade"
+  id="adaugaUserModal"
+  tabindex="-1"
+  aria-labelledby="adaugaUserModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adaugaUserModal">Ce vrei sa prajesti?</h5>
+      </div>
+      <div class="modal-body">
+        <form action="?page=adaugaUser" method="POST">
+          <div class="form-group">
+            <label for="userName">Username</label>
+            <input type="text" class="form-control" id="userName" name="userName" placeholder="userName-ul noului user">
+          </div>
+          <div class="form-group">
+            <label for="pass">Parola</label>
+            <input type="text" class="form-control" id="pass" name="parola" placeholder="Parola">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipUser" id="manager" value="manager">
+            <label class="form-check-label" for="manager">
+              Manager
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipUser" id="prajitor" value="prajitor">
+            <label class="form-check-label" for="prajitor">
+              Prajitor
+            </label>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Creeaza user</button>          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
